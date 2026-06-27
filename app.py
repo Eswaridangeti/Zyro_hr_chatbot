@@ -26,7 +26,7 @@ elif not os.environ.get("GROQ_API_KEY"):
     st.stop()
 
 # Debug: show what files are visible to the app
-docs_path = os.path.join(os.path.dirname(__file__), "docs")
+docs_path = os.path.join(os.path.dirname(__file__), ".devcontainer")
 st.write("Looking for docs at:", docs_path)
 if os.path.exists(docs_path):
     found = os.listdir(docs_path)
@@ -37,7 +37,7 @@ else:
 
 @st.cache_resource
 def build_pipeline():
-    docs_path = os.path.join(os.path.dirname(__file__), "docs")
+    docs_path = os.path.join(os.path.dirname(__file__), ".devcontainer")
     loader = PyPDFDirectoryLoader(docs_path)
     documents = loader.load()
 
