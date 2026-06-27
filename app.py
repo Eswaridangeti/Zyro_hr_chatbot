@@ -25,15 +25,7 @@ elif not os.environ.get("GROQ_API_KEY"):
     st.error("GROQ_API_KEY not found. Please add it in Streamlit Cloud -> Settings -> Secrets.")
     st.stop()
 
-# Debug: show what files are visible to the app
-docs_path = os.path.join(os.path.dirname(__file__), ".devcontainer")
-st.write("Looking for docs at:", docs_path)
-if os.path.exists(docs_path):
-    found = os.listdir(docs_path)
-    st.write(f"Files found: {found}")
-else:
-    st.error("docs/ folder does not exist at: " + docs_path)
-    st.stop()
+
 
 @st.cache_resource
 def build_pipeline():
